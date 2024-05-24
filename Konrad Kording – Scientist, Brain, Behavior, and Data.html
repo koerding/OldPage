@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="en-US" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta name="description" content="Scientist, Brain, Behavior, and Data, Bayesian">
+<link rel="alternate" hreflang="en-US" href="https://koerding.com/">
+<script async="" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/analytics.js"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-34145995-1', 'auto');
+  ga('send', 'pageview');
+
+</script><title>Konrad Kording – Scientist, Brain, Behavior, and Data</title>
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="shortcut icon" href="http://koerding.com/wp-content/uploads/2015/05/faviconKonrad.ico" type="image/x-icon">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Konrad Kording » Feed" href="https://koerding.com/feed">
+<link rel="alternate" type="application/rss+xml" title="Konrad Kording » Comments Feed" href="https://koerding.com/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="Konrad Kording » Konrad Kording, Brains and Machine Learning, UPenn Comments Feed" href="https://koerding.com/testing-new-homepage/feed">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/koerding.com\/wp-includes\/js\/wp-emoji.js?ver=5.5","twemoji":"https:\/\/koerding.com\/wp-includes\/js\/twemoji.js?ver=5.5"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for Transgender flag compatibility. This flag is shortlisted for the Emoji 13 spec,
+				 * but has landed in Twemoji early, so we can add support for it, too.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (white flag emoji + transgender symbol).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F ],
+					[ 0x1F3F3, 0xFE0F, 0x200B, 0x26A7, 0xFE0F ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * So easy, even a baby could do it!
+				 *
+				 *  To test for Emoji 13 support, try to render a new emoji: Man Feeding Baby.
+				 *
+				 * The Man Feeding Baby emoji is a ZWJ sequence combining 👨 Man, a Zero Width Joiner and 🍼 Baby Bottle.
+				 *
+				 * 0xD83D, 0xDC68 == Man emoji.
+				 * 0x200D == Zero-Width Joiner (ZWJ) that links the two code points for the new emoji or
+				 * 0x200B == Zero-Width Space (ZWS) that is rendered for clients not supporting the new emoji.
+				 * 0xD83C, 0xDF7C == Baby Bottle.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0x200D, 0xD83C, 0xDF7C],
+					[0xD83D, 0xDC68, 0x200B, 0xD83C, 0xDF7C]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script><script src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/twemoji.js" type="text/javascript" defer=""></script><script src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/wp-emoji.js" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="mfn-be-css" href="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/be.css" type="text/css" media="all">
+<link rel="stylesheet" id="mfn-animations-css" href="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/animations.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="mfn-font-awesome-css" href="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/fontawesome.css" type="text/css" media="all">
+<link rel="stylesheet" id="mfn-jplayer-css" href="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/jplayer.blue.monday.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="mfn-responsive-css" href="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/responsive.css" type="text/css" media="all">
+<link rel="stylesheet" id="mfn-skin-sea-css" href="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="mfn-fonts-css" href="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/css" type="text/css" media="all">
+<style id="mfn-dynamic-inline-css" type="text/css">
+html{background-color:#FCFCFC}#Wrapper,#Content,.mfn-popup .mfn-popup-content,.mfn-off-canvas-sidebar .mfn-off-canvas-content-wrapper,.mfn-cart-holder,.mfn-header-login,#Top_bar .search_wrapper,#Top_bar .top_bar_right .mfn-live-search-box,.column_livesearch .mfn-live-search-wrapper,.column_livesearch .mfn-live-search-box{background-color:#FCFCFC}.layout-boxed.mfn-bebuilder-header.mfn-ui #Wrapper .mfn-only-sample-content{background-color:#FCFCFC}body:not(.template-slider) #Header{min-height:0px}body.header-below:not(.template-slider) #Header{padding-top:0px}.elementor-page.elementor-default #Content .the_content .section_wrapper{max-width:100%}.elementor-page.elementor-default #Content .section.the_content{width:100%}.elementor-page.elementor-default #Content .section_wrapper .the_content_wrapper{margin-left:0;margin-right:0;width:100%}body,button,span.date_label,.timeline_items li h3 span,input[type="submit"],input[type="reset"],input[type="button"],input[type="date"],input[type="text"],input[type="password"],input[type="tel"],input[type="email"],input[type="url"],textarea,select,.offer_li .title h3,.mfn-menu-item-megamenu{font-family:"Lato",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif}#menu > ul > li > a,a.action_button,#overlay-menu ul li a{font-family:"Lato",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif}#Subheader .title{font-family:"Lato",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif}h1,h2,h3,h4,.text-logo #logo{font-family:"Lato",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif}h5,h6{font-family:"Lato",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif}blockquote{font-family:"Lato",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif}.chart_box .chart .num,.counter .desc_wrapper .number-wrapper,.how_it_works .image .number,.pricing-box .plan-header .price,.quick_fact .number-wrapper,.woocommerce .product div.entry-summary .price{font-family:"Arial",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif}body,.mfn-menu-item-megamenu{font-size:13px;line-height:25px;font-weight:400;letter-spacing:0px}.big{font-size:16px;line-height:28px;font-weight:400;letter-spacing:0px}#menu > ul > li > a,a.action_button,#overlay-menu ul li a{font-size:14px;font-weight:400;letter-spacing:0px}#overlay-menu ul li a{line-height:21px}#Subheader .title{font-size:30px;line-height:35px;font-weight:400;letter-spacing:1px;font-style:italic}h1,.text-logo #logo{font-size:25px;line-height:50px;font-weight:400;letter-spacing:0px}h2{font-size:30px;line-height:34px;font-weight:300;letter-spacing:0px}h3,.woocommerce ul.products li.product h3,.woocommerce #customer_login h2{font-size:25px;line-height:29px;font-weight:300;letter-spacing:0px}h4,.woocommerce .woocommerce-order-details__title,.woocommerce .wc-bacs-bank-details-heading,.woocommerce .woocommerce-customer-details h2{font-size:21px;line-height:25px;font-weight:500;letter-spacing:0px}h5{font-size:15px;line-height:25px;font-weight:700;letter-spacing:0px}h6{font-size:13px;line-height:25px;font-weight:400;letter-spacing:0px}#Intro .intro-title{font-size:70px;line-height:70px;font-weight:400;letter-spacing:0px}@media only screen and (min-width:768px) and (max-width:959px){body,.mfn-menu-item-megamenu{font-size:13px;line-height:25px;font-weight:400;letter-spacing:0px}.big{font-size:16px;line-height:28px;font-weight:400;letter-spacing:0px}#menu > ul > li > a,a.action_button,#overlay-menu ul li a{font-size:14px;font-weight:400;letter-spacing:0px}#overlay-menu ul li a{line-height:21px}#Subheader .title{font-size:30px;line-height:35px;font-weight:400;letter-spacing:1px;font-style:italic}h1,.text-logo #logo{font-size:25px;line-height:50px;font-weight:400;letter-spacing:0px}h2{font-size:30px;line-height:34px;font-weight:300;letter-spacing:0px}h3,.woocommerce ul.products li.product h3,.woocommerce #customer_login h2{font-size:25px;line-height:29px;font-weight:300;letter-spacing:0px}h4,.woocommerce .woocommerce-order-details__title,.woocommerce .wc-bacs-bank-details-heading,.woocommerce .woocommerce-customer-details h2{font-size:21px;line-height:25px;font-weight:500;letter-spacing:0px}h5{font-size:15px;line-height:25px;font-weight:700;letter-spacing:0px}h6{font-size:13px;line-height:25px;font-weight:400;letter-spacing:0px}#Intro .intro-title{font-size:70px;line-height:70px;font-weight:400;letter-spacing:0px}blockquote{font-size:15px}.chart_box .chart .num{font-size:45px;line-height:45px}.counter .desc_wrapper .number-wrapper{font-size:45px;line-height:45px}.counter .desc_wrapper .title{font-size:14px;line-height:18px}.faq .question .title{font-size:14px}.fancy_heading .title{font-size:38px;line-height:38px}.offer .offer_li .desc_wrapper .title h3{font-size:32px;line-height:32px}.offer_thumb_ul li.offer_thumb_li .desc_wrapper .title h3{font-size:32px;line-height:32px}.pricing-box .plan-header h2{font-size:27px;line-height:27px}.pricing-box .plan-header .price > span{font-size:40px;line-height:40px}.pricing-box .plan-header .price sup.currency{font-size:18px;line-height:18px}.pricing-box .plan-header .price sup.period{font-size:14px;line-height:14px}.quick_fact .number-wrapper{font-size:80px;line-height:80px}.trailer_box .desc h2{font-size:27px;line-height:27px}.widget > h3{font-size:17px;line-height:20px}}@media only screen and (min-width:480px) and (max-width:767px){body,.mfn-menu-item-megamenu{font-size:13px;line-height:25px;font-weight:400;letter-spacing:0px}.big{font-size:16px;line-height:28px;font-weight:400;letter-spacing:0px}#menu > ul > li > a,a.action_button,#overlay-menu ul li a{font-size:14px;font-weight:400;letter-spacing:0px}#overlay-menu ul li a{line-height:21px}#Subheader .title{font-size:30px;line-height:35px;font-weight:400;letter-spacing:1px;font-style:italic}h1,.text-logo #logo{font-size:25px;line-height:50px;font-weight:400;letter-spacing:0px}h2{font-size:30px;line-height:34px;font-weight:300;letter-spacing:0px}h3,.woocommerce ul.products li.product h3,.woocommerce #customer_login h2{font-size:25px;line-height:29px;font-weight:300;letter-spacing:0px}h4,.woocommerce .woocommerce-order-details__title,.woocommerce .wc-bacs-bank-details-heading,.woocommerce .woocommerce-customer-details h2{font-size:21px;line-height:25px;font-weight:500;letter-spacing:0px}h5{font-size:15px;line-height:25px;font-weight:700;letter-spacing:0px}h6{font-size:13px;line-height:25px;font-weight:400;letter-spacing:0px}#Intro .intro-title{font-size:70px;line-height:70px;font-weight:400;letter-spacing:0px}blockquote{font-size:14px}.chart_box .chart .num{font-size:40px;line-height:40px}.counter .desc_wrapper .number-wrapper{font-size:40px;line-height:40px}.counter .desc_wrapper .title{font-size:13px;line-height:16px}.faq .question .title{font-size:13px}.fancy_heading .title{font-size:34px;line-height:34px}.offer .offer_li .desc_wrapper .title h3{font-size:28px;line-height:28px}.offer_thumb_ul li.offer_thumb_li .desc_wrapper .title h3{font-size:28px;line-height:28px}.pricing-box .plan-header h2{font-size:24px;line-height:24px}.pricing-box .plan-header .price > span{font-size:34px;line-height:34px}.pricing-box .plan-header .price sup.currency{font-size:16px;line-height:16px}.pricing-box .plan-header .price sup.period{font-size:13px;line-height:13px}.quick_fact .number-wrapper{font-size:70px;line-height:70px}.trailer_box .desc h2{font-size:24px;line-height:24px}.widget > h3{font-size:16px;line-height:19px}}@media only screen and (max-width:479px){body,.mfn-menu-item-megamenu{font-size:13px;line-height:25px;font-weight:400;letter-spacing:0px}.big{font-size:16px;line-height:28px;font-weight:400;letter-spacing:0px}#menu > ul > li > a,a.action_button,#overlay-menu ul li a{font-size:14px;font-weight:400;letter-spacing:0px}#overlay-menu ul li a{line-height:21px}#Subheader .title{font-size:30px;line-height:35px;font-weight:400;letter-spacing:1px;font-style:italic}h1,.text-logo #logo{font-size:25px;line-height:50px;font-weight:400;letter-spacing:0px}h2{font-size:30px;line-height:34px;font-weight:300;letter-spacing:0px}h3,.woocommerce ul.products li.product h3,.woocommerce #customer_login h2{font-size:25px;line-height:29px;font-weight:300;letter-spacing:0px}h4,.woocommerce .woocommerce-order-details__title,.woocommerce .wc-bacs-bank-details-heading,.woocommerce .woocommerce-customer-details h2{font-size:21px;line-height:25px;font-weight:500;letter-spacing:0px}h5{font-size:15px;line-height:25px;font-weight:700;letter-spacing:0px}h6{font-size:13px;line-height:25px;font-weight:400;letter-spacing:0px}#Intro .intro-title{font-size:70px;line-height:70px;font-weight:400;letter-spacing:0px}blockquote{font-size:13px}.chart_box .chart .num{font-size:35px;line-height:35px}.counter .desc_wrapper .number-wrapper{font-size:35px;line-height:35px}.counter .desc_wrapper .title{font-size:13px;line-height:26px}.faq .question .title{font-size:13px}.fancy_heading .title{font-size:30px;line-height:30px}.offer .offer_li .desc_wrapper .title h3{font-size:26px;line-height:26px}.offer_thumb_ul li.offer_thumb_li .desc_wrapper .title h3{font-size:26px;line-height:26px}.pricing-box .plan-header h2{font-size:21px;line-height:21px}.pricing-box .plan-header .price > span{font-size:32px;line-height:32px}.pricing-box .plan-header .price sup.currency{font-size:14px;line-height:14px}.pricing-box .plan-header .price sup.period{font-size:13px;line-height:13px}.quick_fact .number-wrapper{font-size:60px;line-height:60px}.trailer_box .desc h2{font-size:21px;line-height:21px}.widget > h3{font-size:15px;line-height:18px}}.with_aside .sidebar.columns{width:23%}.with_aside .sections_group{width:77%}.aside_both .sidebar.columns{width:18%}.aside_both .sidebar.sidebar-1{margin-left:-82%}.aside_both .sections_group{width:64%;margin-left:18%}@media only screen and (min-width:1240px){#Wrapper,.with_aside .content_wrapper{max-width:1240px}body.layout-boxed.mfn-header-scrolled .mfn-header-tmpl.mfn-sticky-layout-width{max-width:1240px;left:0;right:0;margin-left:auto;margin-right:auto}body.layout-boxed:not(.mfn-header-scrolled) .mfn-header-tmpl.mfn-header-layout-width,body.layout-boxed .mfn-header-tmpl.mfn-header-layout-width:not(.mfn-hasSticky){max-width:1240px;left:0;right:0;margin-left:auto;margin-right:auto}body.layout-boxed.mfn-bebuilder-header.mfn-ui .mfn-only-sample-content{max-width:1240px;margin-left:auto;margin-right:auto}.section_wrapper,.container{max-width:1220px}.layout-boxed.header-boxed #Top_bar.is-sticky{max-width:1240px}}@media only screen and (max-width:767px){#Wrapper{max-width:calc(100% - 67px)}.content_wrapper .section_wrapper,.container,.four.columns .widget-area{max-width:770px !important;padding-left:33px;padding-right:33px}}  .button-default .button,.button-flat .button,.button-round .button{background-color:#f7f7f7;color:#747474}.button-stroke .button{border-color:#f7f7f7;color:#747474}.button-stroke .button:hover{background-color:#f7f7f7;color:#fff}.button-default .button_theme,.button-default button,.button-default input[type="button"],.button-default input[type="reset"],.button-default input[type="submit"],.button-flat .button_theme,.button-flat button,.button-flat input[type="button"],.button-flat input[type="reset"],.button-flat input[type="submit"],.button-round .button_theme,.button-round button,.button-round input[type="button"],.button-round input[type="reset"],.button-round input[type="submit"],.woocommerce #respond input#submit,.woocommerce a.button:not(.default),.woocommerce button.button,.woocommerce input.button,.woocommerce #respond input#submit:hover,.woocommerce a.button:hover,.woocommerce button.button:hover,.woocommerce input.button:hover{color:#ffffff}.button-default #respond input#submit.alt.disabled,.button-default #respond input#submit.alt.disabled:hover,.button-default #respond input#submit.alt:disabled,.button-default #respond input#submit.alt:disabled:hover,.button-default #respond input#submit.alt:disabled[disabled],.button-default #respond input#submit.alt:disabled[disabled]:hover,.button-default a.button.alt.disabled,.button-default a.button.alt.disabled:hover,.button-default a.button.alt:disabled,.button-default a.button.alt:disabled:hover,.button-default a.button.alt:disabled[disabled],.button-default a.button.alt:disabled[disabled]:hover,.button-default button.button.alt.disabled,.button-default button.button.alt.disabled:hover,.button-default button.button.alt:disabled,.button-default button.button.alt:disabled:hover,.button-default button.button.alt:disabled[disabled],.button-default button.button.alt:disabled[disabled]:hover,.button-default input.button.alt.disabled,.button-default input.button.alt.disabled:hover,.button-default input.button.alt:disabled,.button-default input.button.alt:disabled:hover,.button-default input.button.alt:disabled[disabled],.button-default input.button.alt:disabled[disabled]:hover,.button-default #respond input#submit.alt,.button-default a.button.alt,.button-default button.button.alt,.button-default input.button.alt,.button-default #respond input#submit.alt:hover,.button-default a.button.alt:hover,.button-default button.button.alt:hover,.button-default input.button.alt:hover,.button-flat #respond input#submit.alt.disabled,.button-flat #respond input#submit.alt.disabled:hover,.button-flat #respond input#submit.alt:disabled,.button-flat #respond input#submit.alt:disabled:hover,.button-flat #respond input#submit.alt:disabled[disabled],.button-flat #respond input#submit.alt:disabled[disabled]:hover,.button-flat a.button.alt.disabled,.button-flat a.button.alt.disabled:hover,.button-flat a.button.alt:disabled,.button-flat a.button.alt:disabled:hover,.button-flat a.button.alt:disabled[disabled],.button-flat a.button.alt:disabled[disabled]:hover,.button-flat button.button.alt.disabled,.button-flat button.button.alt.disabled:hover,.button-flat button.button.alt:disabled,.button-flat button.button.alt:disabled:hover,.button-flat button.button.alt:disabled[disabled],.button-flat button.button.alt:disabled[disabled]:hover,.button-flat input.button.alt.disabled,.button-flat input.button.alt.disabled:hover,.button-flat input.button.alt:disabled,.button-flat input.button.alt:disabled:hover,.button-flat input.button.alt:disabled[disabled],.button-flat input.button.alt:disabled[disabled]:hover,.button-flat #respond input#submit.alt,.button-flat a.button.alt,.button-flat button.button.alt,.button-flat input.button.alt,.button-flat #respond input#submit.alt:hover,.button-flat a.button.alt:hover,.button-flat button.button.alt:hover,.button-flat input.button.alt:hover,.button-round #respond input#submit.alt.disabled,.button-round #respond input#submit.alt.disabled:hover,.button-round #respond input#submit.alt:disabled,.button-round #respond input#submit.alt:disabled:hover,.button-round #respond input#submit.alt:disabled[disabled],.button-round #respond input#submit.alt:disabled[disabled]:hover,.button-round a.button.alt.disabled,.button-round a.button.alt.disabled:hover,.button-round a.button.alt:disabled,.button-round a.button.alt:disabled:hover,.button-round a.button.alt:disabled[disabled],.button-round a.button.alt:disabled[disabled]:hover,.button-round button.button.alt.disabled,.button-round button.button.alt.disabled:hover,.button-round button.button.alt:disabled,.button-round button.button.alt:disabled:hover,.button-round button.button.alt:disabled[disabled],.button-round button.button.alt:disabled[disabled]:hover,.button-round input.button.alt.disabled,.button-round input.button.alt.disabled:hover,.button-round input.button.alt:disabled,.button-round input.button.alt:disabled:hover,.button-round input.button.alt:disabled[disabled],.button-round input.button.alt:disabled[disabled]:hover,.button-round #respond input#submit.alt,.button-round a.button.alt,.button-round button.button.alt,.button-round input.button.alt,.button-round #respond input#submit.alt:hover,.button-round a.button.alt:hover,.button-round button.button.alt:hover,.button-round input.button.alt:hover{background-color:#2991d6;color:#ffffff}.button-stroke.woocommerce a.button:not(.default),.button-stroke .woocommerce a.button:not(.default),.button-stroke #respond input#submit.alt.disabled,.button-stroke #respond input#submit.alt.disabled:hover,.button-stroke #respond input#submit.alt:disabled,.button-stroke #respond input#submit.alt:disabled:hover,.button-stroke #respond input#submit.alt:disabled[disabled],.button-stroke #respond input#submit.alt:disabled[disabled]:hover,.button-stroke a.button.alt.disabled,.button-stroke a.button.alt.disabled:hover,.button-stroke a.button.alt:disabled,.button-stroke a.button.alt:disabled:hover,.button-stroke a.button.alt:disabled[disabled],.button-stroke a.button.alt:disabled[disabled]:hover,.button-stroke button.button.alt.disabled,.button-stroke button.button.alt.disabled:hover,.button-stroke button.button.alt:disabled,.button-stroke button.button.alt:disabled:hover,.button-stroke button.button.alt:disabled[disabled],.button-stroke button.button.alt:disabled[disabled]:hover,.button-stroke input.button.alt.disabled,.button-stroke input.button.alt.disabled:hover,.button-stroke input.button.alt:disabled,.button-stroke input.button.alt:disabled:hover,.button-stroke input.button.alt:disabled[disabled],.button-stroke input.button.alt:disabled[disabled]:hover,.button-stroke #respond input#submit.alt,.button-stroke a.button.alt,.button-stroke button.button.alt,.button-stroke input.button.alt{border-color:#2991d6;background:none;color:#2991d6}.button-stroke.woocommerce a.button:not(.default):hover,.button-stroke .woocommerce a.button:not(.default):hover,.button-stroke #respond input#submit.alt:hover,.button-stroke a.button.alt:hover,.button-stroke button.button.alt:hover,.button-stroke input.button.alt:hover,.button-stroke a.action_button:hover{background-color:#2991d6;color:#ffffff}.action_button,.action_button:hover{background-color:#f7f7f7;color:#747474}.button-stroke a.action_button{border-color:#f7f7f7}.footer_button{color:#65666C!important;background-color:transparent;box-shadow:none!important}.footer_button:after{display:none!important}.button-custom.woocommerce .button,.button-custom .button,.button-custom .action_button,.button-custom .footer_button,.button-custom button,.button-custom button.button,.button-custom input[type="button"],.button-custom input[type="reset"],.button-custom input[type="submit"],.button-custom .woocommerce #respond input#submit,.button-custom .woocommerce a.button,.button-custom .woocommerce button.button,.button-custom .woocommerce input.button,.button-custom:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button:disabled[disabled]{font-family:;font-size:14px;line-height:14px;font-weight:400;letter-spacing:0px;padding:12px 20px;border-width:0px;border-radius:0px;border-color:transparent}body.button-custom .button{color:#626262;background-color:#dbdddf;border-color:transparent}body.button-custom .button:hover{color:#626262;background-color:#d3d3d3;border-color:transparent}body .button-custom .button_theme,body.button-custom .button_theme,.button-custom button,.button-custom input[type="button"],.button-custom input[type="reset"],.button-custom input[type="submit"],.button-custom .woocommerce #respond input#submit,body.button-custom.woocommerce a.button:not(.default),.button-custom .woocommerce button.button,.button-custom .woocommerce input.button,.button-custom .woocommerce a.button_theme:not(.default){color:#ffffff;background-color:#0095eb;border-color:transparent;box-shadow:unset}body .button-custom .button_theme:hover,body.button-custom .button_theme:hover,.button-custom button:hover,.button-custom input[type="button"]:hover,.button-custom input[type="reset"]:hover,.button-custom input[type="submit"]:hover,.button-custom .woocommerce #respond input#submit:hover,body.button-custom.woocommerce .button:not(.default):hover,body.button-custom.woocommerce a.button:not(.default):hover,.button-custom .woocommerce button.button:hover,.button-custom .woocommerce input.button:hover,.button-custom .woocommerce a.button_theme:not(.default):hover{color:#ffffff;background-color:#007cc3;border-color:transparent}body.button-custom .action_button{color:#626262;background-color:#dbdddf;border-color:transparent;box-shadow:unset}body.button-custom .action_button:hover{color:#626262;background-color:#d3d3d3;border-color:transparent}.button-custom #respond input#submit.alt.disabled,.button-custom #respond input#submit.alt.disabled:hover,.button-custom #respond input#submit.alt:disabled,.button-custom #respond input#submit.alt:disabled:hover,.button-custom #respond input#submit.alt:disabled[disabled],.button-custom #respond input#submit.alt:disabled[disabled]:hover,.button-custom a.button.alt.disabled,.button-custom a.button.alt.disabled:hover,.button-custom a.button.alt:disabled,.button-custom a.button.alt:disabled:hover,.button-custom a.button.alt:disabled[disabled],.button-custom a.button.alt:disabled[disabled]:hover,.button-custom button.button.alt.disabled,.button-custom button.button.alt.disabled:hover,.button-custom button.button.alt:disabled,.button-custom button.button.alt:disabled:hover,.button-custom button.button.alt:disabled[disabled],.button-custom button.button.alt:disabled[disabled]:hover,.button-custom input.button.alt.disabled,.button-custom input.button.alt.disabled:hover,.button-custom input.button.alt:disabled,.button-custom input.button.alt:disabled:hover,.button-custom input.button.alt:disabled[disabled],.button-custom input.button.alt:disabled[disabled]:hover,.button-custom #respond input#submit.alt,.button-custom a.button.alt,.button-custom button.button.alt,.button-custom input.button.alt{line-height:14px;padding:12px 20px;color:#ffffff;background-color:#0095eb;font-family:;font-size:14px;font-weight:400;letter-spacing:0px;border-width:0px;border-radius:0px}.button-custom #respond input#submit.alt:hover,.button-custom a.button.alt:hover,.button-custom button.button.alt:hover,.button-custom input.button.alt:hover,.button-custom a.action_button:hover{color:#ffffff;background-color:#007cc3}#Top_bar #logo,.header-fixed #Top_bar #logo,.header-plain #Top_bar #logo,.header-transparent #Top_bar #logo{height:60px;line-height:60px;padding:15px 0}.logo-overflow #Top_bar:not(.is-sticky) .logo{height:90px}#Top_bar .menu > li > a{padding:15px 0}.menu-highlight:not(.header-creative) #Top_bar .menu > li > a{margin:20px 0}.header-plain:not(.menu-highlight) #Top_bar .menu > li > a span:not(.description){line-height:90px}.header-fixed #Top_bar .menu > li > a{padding:30px 0}@media only screen and (max-width:767px){.mobile-header-mini #Top_bar #logo{height:50px!important;line-height:50px!important;margin:5px 0}}#Top_bar #logo img.svg{width:100px}.image_frame,.wp-caption{border-width:0px}.alert{border-radius:0px}#Top_bar .top_bar_right .top-bar-right-input input{width:200px}.mfn-live-search-box .mfn-live-search-list{max-height:300px}#Side_slide{right:-250px;width:250px}#Side_slide.left{left:-250px}.blog-teaser li .desc-wrapper .desc{background-position-y:-1px}.mfn-free-delivery-info{--mfn-free-delivery-bar:#2991d6;--mfn-free-delivery-bg:rgba(0,0,0,0.1);--mfn-free-delivery-achieved:#2991d6}@media only screen and ( max-width:767px ){}@media only screen and (min-width:1240px){body:not(.header-simple) #Top_bar #menu{display:block!important}.tr-menu #Top_bar #menu{background:none!important}#Top_bar .menu > li > ul.mfn-megamenu > li{float:left}#Top_bar .menu > li > ul.mfn-megamenu > li.mfn-megamenu-cols-1{width:100%}#Top_bar .menu > li > ul.mfn-megamenu > li.mfn-megamenu-cols-2{width:50%}#Top_bar .menu > li > ul.mfn-megamenu > li.mfn-megamenu-cols-3{width:33.33%}#Top_bar .menu > li > ul.mfn-megamenu > li.mfn-megamenu-cols-4{width:25%}#Top_bar .menu > li > ul.mfn-megamenu > li.mfn-megamenu-cols-5{width:20%}#Top_bar .menu > li > ul.mfn-megamenu > li.mfn-megamenu-cols-6{width:16.66%}#Top_bar .menu > li > ul.mfn-megamenu > li > ul{display:block!important;position:inherit;left:auto;top:auto;border-width:0 1px 0 0}#Top_bar .menu > li > ul.mfn-megamenu > li:last-child > ul{border:0}#Top_bar .menu > li > ul.mfn-megamenu > li > ul li{width:auto}#Top_bar .menu > li > ul.mfn-megamenu a.mfn-megamenu-title{text-transform:uppercase;font-weight:400;background:none}#Top_bar .menu > li > ul.mfn-megamenu a .menu-arrow{display:none}.menuo-right #Top_bar .menu > li > ul.mfn-megamenu{left:0;width:98%!important;margin:0 1%;padding:20px 0}.menuo-right #Top_bar .menu > li > ul.mfn-megamenu-bg{box-sizing:border-box}#Top_bar .menu > li > ul.mfn-megamenu-bg{padding:20px 166px 20px 20px;background-repeat:no-repeat;background-position:right bottom}.rtl #Top_bar .menu > li > ul.mfn-megamenu-bg{padding-left:166px;padding-right:20px;background-position:left bottom}#Top_bar .menu > li > ul.mfn-megamenu-bg > li{background:none}#Top_bar .menu > li > ul.mfn-megamenu-bg > li a{border:none}#Top_bar .menu > li > ul.mfn-megamenu-bg > li > ul{background:none!important;-webkit-box-shadow:0 0 0 0;-moz-box-shadow:0 0 0 0;box-shadow:0 0 0 0}.mm-vertical #Top_bar .container{position:relative}.mm-vertical #Top_bar .top_bar_left{position:static}.mm-vertical #Top_bar .menu > li ul{box-shadow:0 0 0 0 transparent!important;background-image:none}.mm-vertical #Top_bar .menu > li > ul.mfn-megamenu{padding:20px 0}.mm-vertical.header-plain #Top_bar .menu > li > ul.mfn-megamenu{width:100%!important;margin:0}.mm-vertical #Top_bar .menu > li > ul.mfn-megamenu > li{display:table-cell;float:none!important;width:10%;padding:0 15px;border-right:1px solid rgba(0,0,0,0.05)}.mm-vertical #Top_bar .menu > li > ul.mfn-megamenu > li:last-child{border-right-width:0}.mm-vertical #Top_bar .menu > li > ul.mfn-megamenu > li.hide-border{border-right-width:0}.mm-vertical #Top_bar .menu > li > ul.mfn-megamenu > li a{border-bottom-width:0;padding:9px 15px;line-height:120%}.mm-vertical #Top_bar .menu > li > ul.mfn-megamenu a.mfn-megamenu-title{font-weight:700}.rtl .mm-vertical #Top_bar .menu > li > ul.mfn-megamenu > li:first-child{border-right-width:0}.rtl .mm-vertical #Top_bar .menu > li > ul.mfn-megamenu > li:last-child{border-right-width:1px}body.header-shop #Top_bar #menu{display:flex!important;background-color:transparent}.header-shop #Top_bar.is-sticky .top_bar_row_second{display:none}.header-plain:not(.menuo-right) #Header .top_bar_left{width:auto!important}.header-stack.header-center #Top_bar #menu{display:inline-block!important}.header-simple #Top_bar #menu{display:none;height:auto;width:300px;bottom:auto;top:100%;right:1px;position:absolute;margin:0}.header-simple #Header a.responsive-menu-toggle{display:block;right:10px}.header-simple #Top_bar #menu > ul{width:100%;float:left}.header-simple #Top_bar #menu ul li{width:100%;padding-bottom:0;border-right:0;position:relative}.header-simple #Top_bar #menu ul li a{padding:0 20px;margin:0;display:block;height:auto;line-height:normal;border:none}.header-simple #Top_bar #menu ul li a:not(.menu-toggle):after{display:none}.header-simple #Top_bar #menu ul li a span{border:none;line-height:44px;display:inline;padding:0}.header-simple #Top_bar #menu ul li.submenu .menu-toggle{display:block;position:absolute;right:0;top:0;width:44px;height:44px;line-height:44px;font-size:30px;font-weight:300;text-align:center;cursor:pointer;color:#444;opacity:0.33;transform:unset}.header-simple #Top_bar #menu ul li.submenu .menu-toggle:after{content:"+";position:static}.header-simple #Top_bar #menu ul li.hover > .menu-toggle:after{content:"-"}.header-simple #Top_bar #menu ul li.hover a{border-bottom:0}.header-simple #Top_bar #menu ul.mfn-megamenu li .menu-toggle{display:none}.header-simple #Top_bar #menu ul li ul{position:relative!important;left:0!important;top:0;padding:0;margin:0!important;width:auto!important;background-image:none}.header-simple #Top_bar #menu ul li ul li{width:100%!important;display:block;padding:0}.header-simple #Top_bar #menu ul li ul li a{padding:0 20px 0 30px}.header-simple #Top_bar #menu ul li ul li a .menu-arrow{display:none}.header-simple #Top_bar #menu ul li ul li a span{padding:0}.header-simple #Top_bar #menu ul li ul li a span:after{display:none!important}.header-simple #Top_bar .menu > li > ul.mfn-megamenu a.mfn-megamenu-title{text-transform:uppercase;font-weight:400}.header-simple #Top_bar .menu > li > ul.mfn-megamenu > li > ul{display:block!important;position:inherit;left:auto;top:auto}.header-simple #Top_bar #menu ul li ul li ul{border-left:0!important;padding:0;top:0}.header-simple #Top_bar #menu ul li ul li ul li a{padding:0 20px 0 40px}.rtl.header-simple #Top_bar #menu{left:1px;right:auto}.rtl.header-simple #Top_bar a.responsive-menu-toggle{left:10px;right:auto}.rtl.header-simple #Top_bar #menu ul li.submenu .menu-toggle{left:0;right:auto}.rtl.header-simple #Top_bar #menu ul li ul{left:auto!important;right:0!important}.rtl.header-simple #Top_bar #menu ul li ul li a{padding:0 30px 0 20px}.rtl.header-simple #Top_bar #menu ul li ul li ul li a{padding:0 40px 0 20px}.menu-highlight #Top_bar .menu > li{margin:0 2px}.menu-highlight:not(.header-creative) #Top_bar .menu > li > a{padding:0;-webkit-border-radius:5px;border-radius:5px}.menu-highlight #Top_bar .menu > li > a:after{display:none}.menu-highlight #Top_bar .menu > li > a span:not(.description){line-height:50px}.menu-highlight #Top_bar .menu > li > a span.description{display:none}.menu-highlight.header-stack #Top_bar .menu > li > a{margin:10px 0!important}.menu-highlight.header-stack #Top_bar .menu > li > a span:not(.description){line-height:40px}.menu-highlight.header-simple #Top_bar #menu ul li,.menu-highlight.header-creative #Top_bar #menu ul li{margin:0}.menu-highlight.header-simple #Top_bar #menu ul li > a,.menu-highlight.header-creative #Top_bar #menu ul li > a{-webkit-border-radius:0;border-radius:0}.menu-highlight:not(.header-fixed):not(.header-simple) #Top_bar.is-sticky .menu > li > a{margin:10px 0!important;padding:5px 0!important}.menu-highlight:not(.header-fixed):not(.header-simple) #Top_bar.is-sticky .menu > li > a span{line-height:30px!important}.header-modern.menu-highlight.menuo-right .menu_wrapper{margin-right:20px}.menu-line-below #Top_bar .menu > li > a:not(.menu-toggle):after{top:auto;bottom:-4px}.menu-line-below #Top_bar.is-sticky .menu > li > a:not(.menu-toggle):after{top:auto;bottom:-4px}.menu-line-below-80 #Top_bar:not(.is-sticky) .menu > li > a:not(.menu-toggle):after{height:4px;left:10%;top:50%;margin-top:20px;width:80%}.menu-line-below-80-1 #Top_bar:not(.is-sticky) .menu > li > a:not(.menu-toggle):after{height:1px;left:10%;top:50%;margin-top:20px;width:80%}.menu-link-color #Top_bar .menu > li > a:not(.menu-toggle):after{display:none!important}.menu-arrow-top #Top_bar .menu > li > a:after{background:none repeat scroll 0 0 rgba(0,0,0,0)!important;border-color:#ccc transparent transparent;border-style:solid;border-width:7px 7px 0;display:block;height:0;left:50%;margin-left:-7px;top:0!important;width:0}.menu-arrow-top #Top_bar.is-sticky .menu > li > a:after{top:0!important}.menu-arrow-bottom #Top_bar .menu > li > a:after{background:none!important;border-color:transparent transparent #ccc;border-style:solid;border-width:0 7px 7px;display:block;height:0;left:50%;margin-left:-7px;top:auto;bottom:0;width:0}.menu-arrow-bottom #Top_bar.is-sticky .menu > li > a:after{top:auto;bottom:0}.menuo-no-borders #Top_bar .menu > li > a span{border-width:0!important}.menuo-no-borders #Header_creative #Top_bar .menu > li > a span{border-bottom-width:0}.menuo-no-borders.header-plain #Top_bar a#header_cart,.menuo-no-borders.header-plain #Top_bar a#search_button,.menuo-no-borders.header-plain #Top_bar .wpml-languages,.menuo-no-borders.header-plain #Top_bar a.action_button{border-width:0}.menuo-right #Top_bar .menu_wrapper{float:right}.menuo-right.header-stack:not(.header-center) #Top_bar .menu_wrapper{margin-right:150px}body.header-creative{padding-left:50px}body.header-creative.header-open{padding-left:250px}body.error404,body.under-construction,body.elementor-maintenance-mode,body.template-blank,body.under-construction.header-rtl.header-creative.header-open{padding-left:0!important;padding-right:0!important}.header-creative.footer-fixed #Footer,.header-creative.footer-sliding #Footer,.header-creative.footer-stick #Footer.is-sticky{box-sizing:border-box;padding-left:50px}.header-open.footer-fixed #Footer,.header-open.footer-sliding #Footer,.header-creative.footer-stick #Footer.is-sticky{padding-left:250px}.header-rtl.header-creative.footer-fixed #Footer,.header-rtl.header-creative.footer-sliding #Footer,.header-rtl.header-creative.footer-stick #Footer.is-sticky{padding-left:0;padding-right:50px}.header-rtl.header-open.footer-fixed #Footer,.header-rtl.header-open.footer-sliding #Footer,.header-rtl.header-creative.footer-stick #Footer.is-sticky{padding-right:250px}#Header_creative{background-color:#fff;position:fixed;width:250px;height:100%;left:-200px;top:0;z-index:9002;-webkit-box-shadow:2px 0 4px 2px rgba(0,0,0,.15);box-shadow:2px 0 4px 2px rgba(0,0,0,.15)}#Header_creative .container{width:100%}#Header_creative .creative-wrapper{opacity:0;margin-right:50px}#Header_creative a.creative-menu-toggle{display:block;width:34px;height:34px;line-height:34px;font-size:22px;text-align:center;position:absolute;top:10px;right:8px;border-radius:3px}.admin-bar #Header_creative a.creative-menu-toggle{top:42px}#Header_creative #Top_bar{position:static;width:100%}#Header_creative #Top_bar .top_bar_left{width:100%!important;float:none}#Header_creative #Top_bar .logo{float:none;text-align:center;margin:15px 0}#Header_creative #Top_bar #menu{background-color:transparent}#Header_creative #Top_bar .menu_wrapper{float:none;margin:0 0 30px}#Header_creative #Top_bar .menu > li{width:100%;float:none;position:relative}#Header_creative #Top_bar .menu > li > a{padding:0;text-align:center}#Header_creative #Top_bar .menu > li > a:after{display:none}#Header_creative #Top_bar .menu > li > a span{border-right:0;border-bottom-width:1px;line-height:38px}#Header_creative #Top_bar .menu li ul{left:100%;right:auto;top:0;box-shadow:2px 2px 2px 0 rgba(0,0,0,0.03);-webkit-box-shadow:2px 2px 2px 0 rgba(0,0,0,0.03)}#Header_creative #Top_bar .menu > li > ul.mfn-megamenu{margin:0;width:700px!important}#Header_creative #Top_bar .menu > li > ul.mfn-megamenu > li > ul{left:0}#Header_creative #Top_bar .menu li ul li a{padding-top:9px;padding-bottom:8px}#Header_creative #Top_bar .menu li ul li ul{top:0}#Header_creative #Top_bar .menu > li > a span.description{display:block;font-size:13px;line-height:28px!important;clear:both}.menuo-arrows #Top_bar .menu > li.submenu > a > span:after{content:unset!important}#Header_creative #Top_bar .top_bar_right{width:100%!important;float:left;height:auto;margin-bottom:35px;text-align:center;padding:0 20px;top:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#Header_creative #Top_bar .top_bar_right:before{content:none}#Header_creative #Top_bar .top_bar_right .top_bar_right_wrapper{flex-wrap:wrap;justify-content:center}#Header_creative #Top_bar .top_bar_right .top-bar-right-icon,#Header_creative #Top_bar .top_bar_right .wpml-languages,#Header_creative #Top_bar .top_bar_right .top-bar-right-button,#Header_creative #Top_bar .top_bar_right .top-bar-right-input{min-height:30px;margin:5px}#Header_creative #Top_bar .search_wrapper{left:100%;top:auto}#Header_creative #Top_bar .banner_wrapper{display:block;text-align:center}#Header_creative #Top_bar .banner_wrapper img{max-width:100%;height:auto;display:inline-block}#Header_creative #Action_bar{display:none;position:absolute;bottom:0;top:auto;clear:both;padding:0 20px;box-sizing:border-box}#Header_creative #Action_bar .contact_details{width:100%;text-align:center;margin-bottom:20px}#Header_creative #Action_bar .contact_details li{padding:0}#Header_creative #Action_bar .social{float:none;text-align:center;padding:5px 0 15px}#Header_creative #Action_bar .social li{margin-bottom:2px}#Header_creative #Action_bar .social-menu{float:none;text-align:center}#Header_creative #Action_bar .social-menu li{border-color:rgba(0,0,0,.1)}#Header_creative .social li a{color:rgba(0,0,0,.5)}#Header_creative .social li a:hover{color:#000}#Header_creative .creative-social{position:absolute;bottom:10px;right:0;width:50px}#Header_creative .creative-social li{display:block;float:none;width:100%;text-align:center;margin-bottom:5px}.header-creative .fixed-nav.fixed-nav-prev{margin-left:50px}.header-creative.header-open .fixed-nav.fixed-nav-prev{margin-left:250px}.menuo-last #Header_creative #Top_bar .menu li.last ul{top:auto;bottom:0}.header-open #Header_creative{left:0}.header-open #Header_creative .creative-wrapper{opacity:1;margin:0!important}.header-open #Header_creative .creative-menu-toggle,.header-open #Header_creative .creative-social{display:none}.header-open #Header_creative #Action_bar{display:block}body.header-rtl.header-creative{padding-left:0;padding-right:50px}.header-rtl #Header_creative{left:auto;right:-200px}.header-rtl #Header_creative .creative-wrapper{margin-left:50px;margin-right:0}.header-rtl #Header_creative a.creative-menu-toggle{left:8px;right:auto}.header-rtl #Header_creative .creative-social{left:0;right:auto}.header-rtl #Footer #back_to_top.sticky{right:125px}.header-rtl #popup_contact{right:70px}.header-rtl #Header_creative #Top_bar .menu li ul{left:auto;right:100%}.header-rtl #Header_creative #Top_bar .search_wrapper{left:auto;right:100%}.header-rtl .fixed-nav.fixed-nav-prev{margin-left:0!important}.header-rtl .fixed-nav.fixed-nav-next{margin-right:50px}body.header-rtl.header-creative.header-open{padding-left:0;padding-right:250px!important}.header-rtl.header-open #Header_creative{left:auto;right:0}.header-rtl.header-open #Footer #back_to_top.sticky{right:325px}.header-rtl.header-open #popup_contact{right:270px}.header-rtl.header-open .fixed-nav.fixed-nav-next{margin-right:250px}#Header_creative.active{left:-1px}.header-rtl #Header_creative.active{left:auto;right:-1px}#Header_creative.active .creative-wrapper{opacity:1;margin:0}.header-creative .vc_row[data-vc-full-width]{padding-left:50px}.header-creative.header-open .vc_row[data-vc-full-width]{padding-left:250px}.header-open .vc_parallax .vc_parallax-inner{left:auto;width:calc(100% - 250px)}.header-open.header-rtl .vc_parallax .vc_parallax-inner{left:0;right:auto}#Header_creative.scroll{height:100%;overflow-y:auto}#Header_creative.scroll:not(.dropdown) .menu li ul{display:none!important}#Header_creative.scroll #Action_bar{position:static}#Header_creative.dropdown{outline:none}#Header_creative.dropdown #Top_bar .menu_wrapper{float:left;width:100%}#Header_creative.dropdown #Top_bar #menu ul li{position:relative;float:left}#Header_creative.dropdown #Top_bar #menu ul li a:not(.menu-toggle):after{display:none}#Header_creative.dropdown #Top_bar #menu ul li a span{line-height:38px;padding:0}#Header_creative.dropdown #Top_bar #menu ul li.submenu .menu-toggle{display:block;position:absolute;right:0;top:0;width:38px;height:38px;line-height:38px;font-size:26px;font-weight:300;text-align:center;cursor:pointer;color:#444;opacity:0.33;z-index:203}#Header_creative.dropdown #Top_bar #menu ul li.submenu .menu-toggle:after{content:"+";position:static}#Header_creative.dropdown #Top_bar #menu ul li.hover > .menu-toggle:after{content:"-"}#Header_creative.dropdown #Top_bar #menu ul.sub-menu li:not(:last-of-type) a{border-bottom:0}#Header_creative.dropdown #Top_bar #menu ul.mfn-megamenu li .menu-toggle{display:none}#Header_creative.dropdown #Top_bar #menu ul li ul{position:relative!important;left:0!important;top:0;padding:0;margin-left:0!important;width:auto!important;background-image:none}#Header_creative.dropdown #Top_bar #menu ul li ul li{width:100%!important}#Header_creative.dropdown #Top_bar #menu ul li ul li a{padding:0 10px;text-align:center}#Header_creative.dropdown #Top_bar #menu ul li ul li a .menu-arrow{display:none}#Header_creative.dropdown #Top_bar #menu ul li ul li a span{padding:0}#Header_creative.dropdown #Top_bar #menu ul li ul li a span:after{display:none!important}#Header_creative.dropdown #Top_bar .menu > li > ul.mfn-megamenu a.mfn-megamenu-title{text-transform:uppercase;font-weight:400}#Header_creative.dropdown #Top_bar .menu > li > ul.mfn-megamenu > li > ul{display:block!important;position:inherit;left:auto;top:auto}#Header_creative.dropdown #Top_bar #menu ul li ul li ul{border-left:0!important;padding:0;top:0}#Header_creative{transition:left .5s ease-in-out,right .5s ease-in-out}#Header_creative .creative-wrapper{transition:opacity .5s ease-in-out,margin 0s ease-in-out .5s}#Header_creative.active .creative-wrapper{transition:opacity .5s ease-in-out,margin 0s ease-in-out}}@media only screen and (min-width:1240px){#Top_bar.is-sticky{position:fixed!important;width:100%;left:0;top:-60px;height:60px;z-index:701;background:#fff;opacity:.97;-webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,0.1);-moz-box-shadow:0 2px 5px 0 rgba(0,0,0,0.1);box-shadow:0 2px 5px 0 rgba(0,0,0,0.1)}.layout-boxed.header-boxed #Top_bar.is-sticky{left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}#Top_bar.is-sticky .top_bar_left,#Top_bar.is-sticky .top_bar_right,#Top_bar.is-sticky .top_bar_right:before{background:none;box-shadow:unset}#Top_bar.is-sticky .logo{width:auto;margin:0 30px 0 20px;padding:0}#Top_bar.is-sticky #logo,#Top_bar.is-sticky .custom-logo-link{padding:5px 0!important;height:50px!important;line-height:50px!important}.logo-no-sticky-padding #Top_bar.is-sticky #logo{height:60px!important;line-height:60px!important}#Top_bar.is-sticky #logo img.logo-main{display:none}#Top_bar.is-sticky #logo img.logo-sticky{display:inline;max-height:35px}.logo-sticky-width-auto #Top_bar.is-sticky #logo img.logo-sticky{width:auto}#Top_bar.is-sticky .menu_wrapper{clear:none}#Top_bar.is-sticky .menu_wrapper .menu > li > a{padding:15px 0}#Top_bar.is-sticky .menu > li > a,#Top_bar.is-sticky .menu > li > a span{line-height:30px}#Top_bar.is-sticky .menu > li > a:after{top:auto;bottom:-4px}#Top_bar.is-sticky .menu > li > a span.description{display:none}#Top_bar.is-sticky .secondary_menu_wrapper,#Top_bar.is-sticky .banner_wrapper{display:none}.header-overlay #Top_bar.is-sticky{display:none}.sticky-dark #Top_bar.is-sticky,.sticky-dark #Top_bar.is-sticky #menu{background:rgba(0,0,0,.8)}.sticky-dark #Top_bar.is-sticky .menu > li:not(.current-menu-item) > a{color:#fff}.sticky-dark #Top_bar.is-sticky .top_bar_right .top-bar-right-icon{color:rgba(255,255,255,.9)}.sticky-dark #Top_bar.is-sticky .top_bar_right .top-bar-right-icon svg .path{stroke:rgba(255,255,255,.9)}.sticky-dark #Top_bar.is-sticky .wpml-languages a.active,.sticky-dark #Top_bar.is-sticky .wpml-languages ul.wpml-lang-dropdown{background:rgba(0,0,0,0.1);border-color:rgba(0,0,0,0.1)}.sticky-white #Top_bar.is-sticky,.sticky-white #Top_bar.is-sticky #menu{background:rgba(255,255,255,.8)}.sticky-white #Top_bar.is-sticky .menu > li:not(.current-menu-item) > a{color:#222}.sticky-white #Top_bar.is-sticky .top_bar_right .top-bar-right-icon{color:rgba(0,0,0,.8)}.sticky-white #Top_bar.is-sticky .top_bar_right .top-bar-right-icon svg .path{stroke:rgba(0,0,0,.8)}.sticky-white #Top_bar.is-sticky .wpml-languages a.active,.sticky-white #Top_bar.is-sticky .wpml-languages ul.wpml-lang-dropdown{background:rgba(255,255,255,0.1);border-color:rgba(0,0,0,0.1)}}@media only screen and (min-width:768px) and (max-width:1240px){.header_placeholder{height:0!important}}@media only screen and (max-width:1239px){#Top_bar #menu{display:none;height:auto;width:300px;bottom:auto;top:100%;right:1px;position:absolute;margin:0}#Top_bar a.responsive-menu-toggle{display:block}#Top_bar #menu > ul{width:100%;float:left}#Top_bar #menu ul li{width:100%;padding-bottom:0;border-right:0;position:relative}#Top_bar #menu ul li a{padding:0 25px;margin:0;display:block;height:auto;line-height:normal;border:none}#Top_bar #menu ul li a:not(.menu-toggle):after{display:none}#Top_bar #menu ul li a span{border:none;line-height:44px;display:inline;padding:0}#Top_bar #menu ul li a span.description{margin:0 0 0 5px}#Top_bar #menu ul li.submenu .menu-toggle{display:block;position:absolute;right:15px;top:0;width:44px;height:44px;line-height:44px;font-size:30px;font-weight:300;text-align:center;cursor:pointer;color:#444;opacity:0.33;transform:unset}#Top_bar #menu ul li.submenu .menu-toggle:after{content:"+";position:static}#Top_bar #menu ul li.hover > .menu-toggle:after{content:"-"}#Top_bar #menu ul li.hover a{border-bottom:0}#Top_bar #menu ul li a span:after{display:none!important}#Top_bar #menu ul.mfn-megamenu li .menu-toggle{display:none}.menuo-arrows.keyboard-support #Top_bar .menu > li.submenu > a:not(.menu-toggle):after,.menuo-arrows:not(.keyboard-support) #Top_bar .menu > li.submenu > a:not(.menu-toggle)::after{display:none !important}#Top_bar #menu ul li ul{position:relative!important;left:0!important;top:0;padding:0;margin-left:0!important;width:auto!important;background-image:none!important;box-shadow:0 0 0 0 transparent!important;-webkit-box-shadow:0 0 0 0 transparent!important}#Top_bar #menu ul li ul li{width:100%!important}#Top_bar #menu ul li ul li a{padding:0 20px 0 35px}#Top_bar #menu ul li ul li a .menu-arrow{display:none}#Top_bar #menu ul li ul li a span{padding:0}#Top_bar #menu ul li ul li a span:after{display:none!important}#Top_bar .menu > li > ul.mfn-megamenu a.mfn-megamenu-title{text-transform:uppercase;font-weight:400}#Top_bar .menu > li > ul.mfn-megamenu > li > ul{display:block!important;position:inherit;left:auto;top:auto}#Top_bar #menu ul li ul li ul{border-left:0!important;padding:0;top:0}#Top_bar #menu ul li ul li ul li a{padding:0 20px 0 45px}#Header #menu > ul > li.current-menu-item > a,#Header #menu > ul > li.current_page_item > a,#Header #menu > ul > li.current-menu-parent > a,#Header #menu > ul > li.current-page-parent > a,#Header #menu > ul > li.current-menu-ancestor > a,#Header #menu > ul > li.current_page_ancestor > a{background:rgba(0,0,0,.02)}.rtl #Top_bar #menu{left:1px;right:auto}.rtl #Top_bar a.responsive-menu-toggle{left:20px;right:auto}.rtl #Top_bar #menu ul li.submenu .menu-toggle{left:15px;right:auto;border-left:none;border-right:1px solid #eee;transform:unset}.rtl #Top_bar #menu ul li ul{left:auto!important;right:0!important}.rtl #Top_bar #menu ul li ul li a{padding:0 30px 0 20px}.rtl #Top_bar #menu ul li ul li ul li a{padding:0 40px 0 20px}.header-stack .menu_wrapper a.responsive-menu-toggle{position:static!important;margin:11px 0!important}.header-stack .menu_wrapper #menu{left:0;right:auto}.rtl.header-stack #Top_bar #menu{left:auto;right:0}.admin-bar #Header_creative{top:32px}.header-creative.layout-boxed{padding-top:85px}.header-creative.layout-full-width #Wrapper{padding-top:60px}#Header_creative{position:fixed;width:100%;left:0!important;top:0;z-index:1001}#Header_creative .creative-wrapper{display:block!important;opacity:1!important}#Header_creative .creative-menu-toggle,#Header_creative .creative-social{display:none!important;opacity:1!important}#Header_creative #Top_bar{position:static;width:100%}#Header_creative #Top_bar .one{display:flex}#Header_creative #Top_bar #logo,#Header_creative #Top_bar .custom-logo-link{height:50px;line-height:50px;padding:5px 0}#Header_creative #Top_bar #logo img.logo-sticky{max-height:40px!important}#Header_creative #logo img.logo-main{display:none}#Header_creative #logo img.logo-sticky{display:inline-block}.logo-no-sticky-padding #Header_creative #Top_bar #logo{height:60px;line-height:60px;padding:0}.logo-no-sticky-padding #Header_creative #Top_bar #logo img.logo-sticky{max-height:60px!important}#Header_creative #Action_bar{display:none}#Header_creative #Top_bar .top_bar_right:before{content:none}#Header_creative.scroll{overflow:visible!important}}
+form input.display-none{display:none!important}
+</style>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/cookies.js" id="1and1-wp-cookies-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/jquery.js" id="jquery-js"></script>
+<script type="text/javascript" id="dlm-public-js-extra">
+/* <![CDATA[ */
+var dlmVars = {"logStatus":"enabled","jsErrorLogging":{"status":"","url":"https:\/\/koerding.com\/wp-admin\/admin-ajax.php","nonce":"355824ad12","action":"log_js_errors"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/public.js" id="dlm-public-js"></script>
+<link rel="https://api.w.org/" href="https://koerding.com/wp-json/"><link rel="alternate" type="application/json" href="https://koerding.com/wp-json/wp/v2/pages/2234"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://koerding.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://koerding.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.5">
+<link rel="canonical" href="https://koerding.com/">
+<link rel="shortlink" href="https://koerding.com/">
+<link rel="alternate" type="application/json+oembed" href="https://koerding.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkoerding.com%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://koerding.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkoerding.com%2F&amp;format=xml">
+
+</head>
+
+<body class="home page-template-default page page-id-2234  color-sea content-brightness-light input-brightness-light style-simple button-default layout-full-width one-page hide-love header-classic sticky-header sticky-white ab-hide subheader-title-left responsive-overflow-x-mobile mobile-tb-center mobile-mini-mr-ll be-page-2234 be-reg-2743">
+
+	
+		<div id="home"></div>
+		<!-- mfn_hook_top --><!-- mfn_hook_top -->
+		
+		
+		<div id="Wrapper">
+
+	<div id="Header_wrapper" class="">
+
+	<header id="Header">
+
+
+<div class="header_placeholder"></div>
+
+<div id="Top_bar" class="">
+
+	<div class="container">
+		<div class="column one">
+
+			<div class="top_bar_left clearfix">
+
+				<div class="logo"><span id="logo" data-height="60" data-padding="15"><img class="logo-main scale-with-grid " src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/klab_logo_english.png" data-retina="" data-height="690" alt="klab_logo_english" data-no-retina=""><img class="logo-sticky scale-with-grid " src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/klab_logo_english.png" data-retina="" data-height="690" alt="klab_logo_english" data-no-retina="" style=""><img class="logo-mobile scale-with-grid " src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/klab_logo_english.png" data-retina="" data-height="690" alt="klab_logo_english" data-no-retina="" style=""><img class="logo-mobile-sticky scale-with-grid " src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/klab_logo_english.png" data-retina="" data-height="690" alt="klab_logo_english" data-no-retina="" style=""></span></div>
+				<div class="menu_wrapper">
+					<a class="responsive-menu-toggle  is-sticky" href="https://koerding.com/#" aria-label="mobile menu"><i class="icon-menu-fine" aria-hidden="true"></i></a><nav id="menu" role="navigation" aria-expanded="false" aria-label="Main menu"><ul id="menu-main-menu" class="menu menu-main"><li id="menu-item-8" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://koerding.com/#research" data-hash="#research"><span>Research</span></a></li>
+<li id="menu-item-2205" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://koerding.com/#timeline" data-hash="#timeline"><span>Timeline</span></a></li>
+<li id="menu-item-2207" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://koerding.com/#contact" data-hash="#contact"><span>Contact</span></a></li>
+<li id="menu-item-2259" class="menu-item menu-item-type-custom menu-item-object-custom last"><a title="CV as pdf" href="http://koerding.com/wp-content/uploads/2016/09/cv_konrad.pdf"><span>CV (pdf)</span></a></li>
+<li id="menu-item-2261" class="menu-item menu-item-type-custom menu-item-object-custom last"><a title="link to lab page" href="http://kordinglab.com/"><span>Lab page</span></a></li>
+</ul></nav>				</div>
+
+				<div class="secondary_menu_wrapper">
+									</div>
+
+				
+			</div>
+
+			
+			<div class="search_wrapper">
+				
+<form method="get" class="form-searchform" action="https://koerding.com/">
+
+	
+  <svg class="icon_search" width="26" viewBox="0 0 26 26" aria-label="search icon"><defs><style>.path{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><circle class="path" cx="11.35" cy="11.35" r="6"></circle><line class="path" x1="15.59" y1="15.59" x2="20.65" y2="20.65"></line></svg>
+  <span class="mfn-close-icon icon_close" tabindex="0"><span class="icon">✕</span></span>
+
+	
+	<input type="text" class="field" name="s" autocomplete="off" placeholder="Enter your search" aria-label="Enter your search">
+	<input type="submit" class="display-none" value="" aria-label="Search">
+
+</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+</header>
+	<div id="Subheader"><div class="container"><div class="column one"><h1 class="title">Konrad Kording, Brains and Machine Learning, UPenn</h1><ul class="breadcrumbs no-link"><li>Home</li></ul></div></div></div>
+</div>
+
+		<!-- mfn_hook_content_before --><!-- mfn_hook_content_before -->
+	
+
+<div id="Content" role="main">
+	<div class="content_wrapper clearfix">
+
+		<main class="sections_group">
+
+			<div class="entry-content" itemprop="mainContentOfPage">
+
+				
+				<div class="mfn-builder-content mfn-default-content-buider"><section class="section mcb-section mfn-default-section mcb-section-b4db4fdaf" id="cv" style=""><div class="mcb-background-overlay"></div><div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-b4db4fdaf"></div></section><section class="section mcb-section mfn-default-section mcb-section-263288d67" id="research" style="" data-id="#research"><div class="mcb-background-overlay"></div><div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-263288d67"><div class="wrap mcb-wrap mcb-wrap-caa05c428 one tablet-one laptop-one mobile-one valign-top clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one" style="padding:;background-color:"><div class="mcb-wrap-inner mcb-wrap-inner-caa05c428 mfn-module-wrapper mfn-wrapper-for-wraps"><div class="mcb-wrap-background-overlay"></div><div class="column mcb-column mcb-item-5dfc009ab three-fourth laptop-three-fourth tablet-three-fourth mobile-one column_column" style=""><div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-5dfc009ab mcb-item-column-inner"><div class="column_attr mfn-inline-editor clearfix" style=""><p>
+Dr. Kording's (He/Him) is trying to understand how the world and in particular the brain works using data. Early research in the lab focused on computational neuroscience and in particular movement. But as the approaches matured, the focus has more been on discovering ways in which new data sources as well as emerging data analysis can enable awesome possibilities. The current focus is on Causality in Data science applications - how do we know how things work if we can not randomize? But we are also very much excited about understanding how the brain does credit assignment. Our style of working is transdisciplinary, we collaborate on virtually every project.</p>
+
+<p> Over time the lab has made an impact across many fields including:
+</p><ul>
+<li><b> Neuromatch movement: </b> We cofounded the neuromatch movement which makes high level education and conferences available for free to thousands of students across more than 100 countries   (<a href="https://neuromatch.io/">Neuromatch</a>)
+</li><li><b> Causality in Neuroscience: </b> We develop approaches that allow neuroscientists to discover causal relations. (<a href="https://www.ncbi.nlm.nih.gov/pubmed/30988445">introduction to quasiexperimental cauality</a>)
+</li><li><b> Policing science: </b> We are finding image fraud (illicit image reuse) across millions of papers. (<a href="https://www.nature.com/articles/d41586-018-02421-3">nature writing about us</a>)
+  </li><li><b>How to write papers: </b> Our writing guide is used by hundreds of thousands of people (<a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619">paper</a>), at &gt;10k tweets possibly the most tweeted about paper across science.</li>
+  <li><b>Deep learning and brains: </b> Outlined a path to link those two areas (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5021692/">paper</a>)</li>
+  <li><b>Large scale xray tomography: </b> Spearheaded approach to image large brain areas and segment cells/blood vessels (<a href="http://www.eneuro.org/content/4/5/ENEURO.0195-17.2017">paper</a>)</li>
+  <li><b>Neural cryptography: </b> Developed brain decoders that need no training data (<a href="https://www.biorxiv.org/content/biorxiv/early/2016/10/14/080861.full.pdf">paper</a>)</li>
+  <li><b>Mood and Behavior understanding: </b> Shown how mobile phone data can provide insight into everyday behavior (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4526997/">paper</a>)</li>
+  <li><b>DNA ticker tapes: </b> Proposed that cells could write a temporal history of their activity onto DNA (<a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003145">paper</a>))</li>
+  <li><b>Physics for massive brain recording: </b>Calculated what is necessary to record from all neurons in the brain (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3807567/">paper</a>)</li>
+  <li><b>Predicting professor careers: </b> Introduced data driven multifaceted career predictions (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3770471/">paper</a>)</li> 
+ <li><b>Uncertainty in the brain: </b> Extensively asked how the brain represents what it does not know (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4946902/">paper</a>)</li>
+<li><b>Stevenson's law: </b> Described that the number of simultaneously recorded neurons grows exponentially with a timescale of 6 years (<a href="https://www.researchgate.net/profile/Ian_Stevenson/publication/49788760_How_advances_in_neural_recording_affect_data_analysis/links/0912f50805b3201ce9000000.pdf">paper</a>)</li>
+ <li><b>Dynamics of human memory: </b> Shown that many ways of forgetting are actually optimal (<a href="http://www.neuroinf.com/pubs/NatNeuro07.pdf"> paper</a>)</li>
+ <li><b>Causal inference in human behavior: </b> Demonstrated how the brain understand cause and effect for perception and action (<a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000943">paper</a>)</li>
+  <li><b>Bayesian brains: </b> Shown that many behaviors under uncertainty are close to the ideal statistical processing (<a href="http://www.sciencedirect.com/science/article/pii/S1364661306001276">review</a>)</li>
+  <li><b>Statistics of the real world: </b>  Discovered how many aspects of early sensory brain areas optimize sparseness and stability (<a href="http://gmbv.com/pubs/Koerding.jnp.03.pdf">example</a>)</li>
+</ul>
+
+<p>
+See Konrad's <a href="http://koerding.com/wp-content/uploads/2016/09/cv_konrad.pdf">CV</a> or <a href="http://scholar.google.com/citations?user=MiFqJGcAAAAJ">google scholar profile</a>. Or visit the <a href="http://kordinglab.com/">Lab</a> page with all the up-to-date information on the research and the community.
+</p></div></div></div><div class="column mcb-column mcb-item-c3382faa2 one-fourth laptop-one-fourth tablet-one-fourth mobile-one column_image animate zoomInLeft" style="" data-anim-type="zoomInLeft"><div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-c3382faa2 mcb-item-image-inner"><div class="image_frame image_item no_link scale-with-grid no_border"><div class="image_wrapper "><img class="scale-with-grid" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/Transparent-Portrait.jpg" alt="Konrad Kording, Brains and Machine Learning, UPenn" title="" width="" height="" style=""></div></div>
+</div></div></div></div></div></section><section class="section mcb-section mfn-default-section mcb-section-42814418a" style=""><div class="mcb-background-overlay"></div><div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-42814418a"></div></section><section class="section mcb-section mfn-default-section mcb-section-0ff9e5276" id="timeline" style="" data-id="#timeline"><div class="mcb-background-overlay"></div><div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-0ff9e5276"><div class="wrap mcb-wrap mcb-wrap-83a94a3b3 one tablet-one laptop-one mobile-one valign-top clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one" style="padding:;background-color:"><div class="mcb-wrap-inner mcb-wrap-inner-83a94a3b3 mfn-module-wrapper mfn-wrapper-for-wraps"><div class="mcb-wrap-background-overlay"></div><div class="column mcb-column mcb-item-2b5200513 one laptop-one tablet-one mobile-one column_fancy_heading" style=""><div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-2b5200513 mcb-item-fancy_heading-inner"><div class="fancy_heading fancy_heading_icon"><div class="fh-top"></div><h2 class="title">Timeline</h2></div>
+</div></div><div class="column mcb-column mcb-item-74cdb24ec one laptop-one tablet-one mobile-one column_timeline" style=""><div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-74cdb24ec mcb-item-timeline-inner"><ul class="timeline_items"><li><h3><span> 2020</span> Neuromatch</h3><div class="desc">Neuromatch conferences draw &gt;4000 people. Third version had about 1000 talks. Neuromatch Academy trains 8000 people in y1. Hiring ~200 TAs in y1, ~300 TAs in y2. At this rate, we train a significant proportion of all neuroscientists.</div></li><li><h3><span> 2019 </span> Causality</h3><div class="desc">Much of the lab is now interested in causality. Multiple grants. </div></li><li><h3><span>2017</span> UPenn</h3><div class="desc">Konrad starts as PIK (Penn Integrates Knowledge) professor at UPenn.</div></li><li><h3><span>2015</span>Neurotechnology</h3><div class="desc">Two new U01s from the NIH: xray tomography of brains, and massive scale electrical recordings. Emphasizing the lab's emerging focus on new neurotechnologies.</div></li><li><h3><span>2015</span>Full Professor</h3><div class="desc">Promotion to professor. Years of work. And a loss of a word in the title.</div></li><li><h3><span>2015</span>Automatic Anatomy</h3><div class="desc">New paper in elife shows how connectivity and many other aspects of neurons can be combined to identify cell types. <a href="http://elifesciences.org/content/4/e04250/">[link]</a> Major future interest for lab.</div></li><li><h3><span>2015</span>New big data sources</h3><div class="desc">In collaboration with Argonne national lab and with the group of Andreas Schaefer, Konrad is proposing new ways of generating huge amounts of data.</div></li><li><h3><span>2014</span>RIC CI chair</h3><div class="desc">RIC produces a new title for Konrad with a helpful new funding stream.</div></li><li><h3><span>2013</span> DNA recording of neural activity</h3><div class="desc">With a new transformative grant by the NIH aimed at recording all activities in the brain onto DNA there is a new focus on high risk high reward projects.</div></li><li><h3><span>2010</span>Tenure</h3><div class="desc">Celebrating a great time at Northwestern.</div></li><li><h3><span>2009</span> An NIH funded grant</h3><div class="desc">The project "Role of uncertainty for motor learning and adaptation" gets funded by the NINDS.</div></li><li><h3><span>2006</span>Assistant professor and Northwestern University and the Rehabilitation Institute of Chicago</h3><div class="desc">Mostly focusing on computational motor control and its use for rehabilitation. Can not suppress the interest in neural data too long.</div></li><li><h3><span>2004-2006</span> Postdoc in computational cognitive science</h3><div class="desc">Normative models for behavior and topics models for text processing. Extensive learning about statistics.</div></li><li><h3><span>2002-2004</span>Postdoc in computational motor Control</h3><div class="desc">Normative models of motor control. And extensive experimental tests of these ideas. With Daniel Wolpert at UCL London. Learning statistics and machine learning from Peter Dayan, Maneesh Sahani and others at Gatsby.</div></li><li><h3><span>2001</span> PhD in Physics</h3><div class="desc">The doctoral thesis focused on simulating groups of neurons, and on calculating how their properties could be optimally matched to the statistical properties of the world.</div></li></ul>
+</div></div></div></div></div></section><section class="section mcb-section mfn-default-section mcb-section-ab14b66ef" id="SampleProjects" style=""><div class="mcb-background-overlay"></div><div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-ab14b66ef"></div></section><section class="section mcb-section mfn-default-section mcb-section-c232f2675" id="contact" style="" data-id="#contact"><div class="mcb-background-overlay"></div><div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-c232f2675"><div class="wrap mcb-wrap mcb-wrap-ee650a9a0 one tablet-one laptop-one mobile-one valign-top clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one" style="padding:;background-color:"><div class="mcb-wrap-inner mcb-wrap-inner-ee650a9a0 mfn-module-wrapper mfn-wrapper-for-wraps"><div class="mcb-wrap-background-overlay"></div><div class="column mcb-column mcb-item-956e58f14 one laptop-one tablet-one mobile-one column_fancy_heading" style=""><div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-956e58f14 mcb-item-fancy_heading-inner"><div class="fancy_heading fancy_heading_icon"><div class="fh-top"></div><h2 class="title">Contact</h2></div>
+</div></div><div class="column mcb-column mcb-item-3db28e89b one-third laptop-one-third tablet-one-third mobile-one column_column" style=""><div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-3db28e89b mcb-item-column-inner"><div class="column_attr mfn-inline-editor clearfix" style=""></div></div></div><div class="column mcb-column mcb-item-cb2640557 one-third laptop-one-third tablet-one-third mobile-one column_column" style=""><div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-cb2640557 mcb-item-column-inner"><div class="column_attr mfn-inline-editor clearfix" style="">Konrad P Kording <br>
+404b richards<br>
+hamilton walk, Philadelphia, PA 19104<br>
+Bioengineering and Neuroscience at UPenn<br>
+tel.: 857 928 5370<br>
+email: koerding@gmail.com</div></div></div></div></div></div></section><section class="section mcb-section mfn-default-section mcb-section-b8767a504" id="publications" style=""><div class="mcb-background-overlay"></div><div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-b8767a504"></div></section></div><section class="section mcb-section the_content no_content"><div class="section_wrapper"><div class="the_content_wrapper "></div></div></section>
+				<section class="section section-page-footer">
+					<div class="section_wrapper clearfix">
+
+						<div class="column one page-pager">
+							<div class="mcb-column-inner">
+															</div>
+						</div>
+
+					</div>
+				</section>
+
+				
+			</div>
+
+			
+		</main>
+
+		
+	</div>
+</div>
+
+
+
+<!-- mfn_hook_content_after --><!-- mfn_hook_content_after -->
+
+
+	<footer id="Footer" class="clearfix mfn-footer " role="contentinfo">
+
+		
+		
+		
+		<a id="back_to_top" aria-label="Back to top icon" class="footer_button in_footer" href="https://koerding.com/"><i class="icon-up-open-big"></i></a>
+	</footer>
+
+ <!-- End Footer Template -->
+
+</div>
+
+<div id="body_overlay"></div>
+
+
+
+
+
+
+<!-- mfn_hook_bottom --><!-- mfn_hook_bottom -->
+
+<link rel="stylesheet" id="mfn-post-local-styles-22341716580736-css" href="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/post-2234.css" type="text/css" media="all">
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/core.min.js" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/widget.min.js" id="jquery-ui-widget-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/tabs.min.js" id="jquery-ui-tabs-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/debouncedresize.min.js" id="mfn-debouncedresize-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/magnificpopup.min.js" id="mfn-magnificpopup-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/menu.js" id="mfn-menu-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/visible.min.js" id="mfn-visible-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/animations.min.js" id="mfn-animations-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/jplayer.min.js" id="mfn-jplayer-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/enllax.min.js" id="mfn-enllax-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/translate3d.js" id="mfn-parallax-js"></script>
+<script type="text/javascript" id="mfn-scripts-js-extra">
+/* <![CDATA[ */
+var mfn = {"mobileInit":"1240","parallax":"translate3d","responsive":"1","sidebarSticky":"","lightbox":{"disable":false,"disableMobile":false,"title":false},"slider":{"blog":0,"clients":0,"offer":0,"portfolio":0,"shop":0,"slider":0,"testimonials":0},"livesearch":{"minChar":3,"loadPosts":10,"translation":{"pages":"Pages","categories":"Categories","portfolio":"Portfolio","post":"Posts","products":"Products"}},"accessibility":{"translation":{"headerContainer":"Header container","toggleSubmenu":"Toggle submenu"}},"home_url":"","home_url_lang":"https:\/\/koerding.com","site_url":"https:\/\/koerding.com","translation":{"success_message":"Link copied to the clipboard.","error_message":"Something went wrong. Please try again later!"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/scripts.js" id="mfn-scripts-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/comment-reply.js" id="comment-reply-js"></script>
+<script type="text/javascript" src="./Konrad Kording – Scientist, Brain, Behavior, and Data_files/wp-embed.js" id="wp-embed-js"></script>
+
+
+
+
+</body></html>
